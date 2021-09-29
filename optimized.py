@@ -7,7 +7,7 @@ action_wallet1 = []
 
 # tri par bénef/cout
 def sort_by_efficiency(actions_list):
-    # sorted_list = sorted(actions_list, key=lambda x: (x[1]/100)/x[0], reverse=True)
+    # sorted_list = sorted(actions_list, key=lambda x: (x[1]/100)*x[0], reverse=True)
     sorted_list = sorted(actions_list, key=lambda x: x[1], reverse=True)
     return sorted_list
 
@@ -39,6 +39,6 @@ def calcul_benefice_combinaison(combinaison):
 
 
 best_combo = get_best_invest(sort_by_efficiency(actions_data), wallet1, action_wallet1)
-print(f"Meilleure combinaison : {best_combo}")
+print(f"Meilleure combinaison : {[i[2] for i in best_combo]}")
 print(f"Bénéfice : {calcul_benefice_combinaison(best_combo)} €")
 print(f"Prix : {calcul_prix_combinaison(best_combo)} €")
